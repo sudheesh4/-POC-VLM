@@ -59,26 +59,26 @@ MODEL : Un-Trained
 IMAGE: /dog.jpg
 TEMPERATURE: 0.1000
 ============================================================
-RANK PROMPT                                   SIMILARITY   PROBABILITY 
+RANK; PROMPT;                                   SIMILARITY;   PROBABILITY 
 ------------------------------------------------------------
-1    a photo of a tree                        -0.0644      0.1716      
-2    a photo of a car                         -0.0657      0.1694      
-3    a photo of a flower                      -0.0675      0.1663      
-4    a photo of a cat                         -0.0682      0.1653      
-5    a photo of a dog                         -0.0690      0.1639      
-6    a photo of a building                    -0.0692      0.1636      
+1 ;   a photo of a tree                       ; -0.0644     ; 0.1716      
+2 ;   a photo of a car                        ; -0.0657     ; 0.1694      
+3 ;   a photo of a flower                     ; -0.0675     ; 0.1663      
+4 ;   a photo of a cat                        ; -0.0682     ; 0.1653      
+5 ;   a photo of a dog                        ; -0.0690     ; 0.1639      
+6 ;   a photo of a building                   ;  -0.0692    ;  0.1636      
 
 ============================================================
 MODEL : Trained
 IMAGE: /dog.jpg
 TEMPERATURE: 0.0395
 ============================================================
-RANK PROMPT                                   SIMILARITY   PROBABILITY 
+RANK; PROMPT;                                   SIMILARITY;   PROBABILITY 
 ------------------------------------------------------------
-1    a photo of a dog                         0.7622       0.7112      
-2    a photo of a cat                         0.7255       0.2810      
-3    a photo of a flower                      0.5711       0.0056      
-4    a photo of a car                         0.5237       0.0017      
-5    a photo of a tree                        0.4673       0.0004      
-6    a photo of a building                    0.3643       0.0000      
+1 ;    a photo of a dog                       ; 0.7622      ; 0.7112      
+2 ;    a photo of a cat                       ;  0.7255     ;  0.2810      
+3 ;   a photo of a flower                     ; 0.5711      ; 0.0056      
+4 ;   a photo of a car                        ; 0.5237      ; 0.0017      
+5 ;   a photo of a tree                       ; 0.4673      ; 0.0004      
+6 ;   a photo of a building                   ; 0.3643      ; 0.0000      
 
