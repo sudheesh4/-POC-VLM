@@ -62,7 +62,11 @@ class VLM(nn.Module):
         super().__init__()
         self.vision_encoder = vision_encoder
         self.text_encoder = text_encoder
-        self.temperature = nn.Parameter(torch.tensor(temperature))
+        
+        self.temperature = nn.Parameter(torch.tensor(temperature)) 
+        #  temperature controls the "hardness" of the negative mining; is there for optimisation.
+        # low temperature => Makes the loss focus more on hard negatives => Similarity distribution becomes very peaky , Training can become unstable ,Risk of gradient explosion
+        # large temperature => Makes the loss consider all negatives more equally => Similarity distribution becomes uniform, Slow convergence , Poor final alignment, Loss doesn't distinguish well between good and bad matches
         
         self.image_projector = Projector(vision_encoder.feature_dim, projector_dim)
         self.text_projector = Projector(text_encoder.feature_dim, projector_dim)
