@@ -77,7 +77,6 @@ class Flickr30kDataset(Dataset):
 
 def get_dataloaders(batch_size=64, image_size=224, num_workers=2):
     """Create train and validation dataloaders"""
-    # Since Flickr30k only has 'test' split, we'll split it manually
     full_dataset = load_dataset("nlphuji/flickr30k")
     test_dataset = full_dataset['test']
     
