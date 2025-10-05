@@ -2,6 +2,7 @@
 
 This (POC-)project trains a VLM using frozen pre-trained vision and text encoders, with learnable projector networks that map both modalities into a shared semantic space. 
 The model enables zero-shot image classification and cross-modal retrieval by computing similarity between image and text embeddings.
+(Trained on Flickr30k, Checkpoint @ Epoch 20 : [TimelyFormulation74/POC_VLM](https://huggingface.co/TimelyFormulation74/POC_VLM))
 
 ## Project Structure
 ```
