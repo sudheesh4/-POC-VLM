@@ -7,7 +7,7 @@ import timm
 class VisionEncoder(nn.Module):
     def __init__(self, model_name="vit_base_patch16_224", pretrained=True, freeze=True):
         super().__init__()
-        self.model = timm.create_model(model_name, pretrained=pretrained, num_classes=0)
+        self.model = timm.create_model(model_name, pretrained=pretrained, num_classes=0)#num_classes=0 ensures output is pooled and not patch levle i.e. (batch,num_features) rather than (batch, num_tokens, num_features)
         self.feature_dim = self.model.num_features
         
         if freeze:
