@@ -54,11 +54,10 @@ After training on Flickr30k for 20 Epochs:
 
 ### Zero-shot Image Classification
 
-============================================================
 MODEL : Un-Trained
 IMAGE: /dog.jpg
 TEMPERATURE: 0.1000
-============================================================
+
 RANK; PROMPT;                                   SIMILARITY;   PROBABILITY 
 ------------------------------------------------------------
 1 ;   a photo of a tree                       ; -0.0644     ; 0.1716      
@@ -68,11 +67,10 @@ RANK; PROMPT;                                   SIMILARITY;   PROBABILITY
 5 ;   a photo of a dog                        ; -0.0690     ; 0.1639      
 6 ;   a photo of a building                   ;  -0.0692    ;  0.1636      
 
-============================================================
 MODEL : Trained
 IMAGE: /dog.jpg
 TEMPERATURE: 0.0395
-============================================================
+
 RANK; PROMPT;                                   SIMILARITY;   PROBABILITY 
 ------------------------------------------------------------
 1 ;    a photo of a dog                       ; 0.7622      ; 0.7112      
