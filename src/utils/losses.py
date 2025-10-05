@@ -15,11 +15,17 @@ def contrastive_loss(image_embeddings, text_embeddings, temperature):
     
     # Labels are the diagonal elements
     batch_size = image_embeddings.shape[0]
-    labels = torch.arange(batch_size).to(logits.device)  # N img-text pairs
+    labels = torch.arange(batch_size).to(logits.device)  # N img-text pairs #shape (N=Batch,)
     
     # Symmetric cross entropy loss
-    loss_i = F.cross_entropy(logits, labels)   # Image-to-text loss : n_th image should be linked to n_th text only (highest similarity for n_th pair)
-    loss_t = F.cross_entropy(logits.T, labels) # Text-to-image loss : n_th text should be linked to n_th image only (highest similarity for n_th pair)
+    
+    loss_i = F.cross_entropy(logits, labels)   # for each text, find correct image
+    # Text-to-image loss : n_th text should be linked to n_th image only (highest similarity for n_th pair)
+    # Single scalar loss value averaged over all batch
+    
+    loss_t = F.cross_entropy(logits.T, labels) # for each image, find correct text 
+    # Image-to-text loss : n_th image should be linked to n_th text only (highest similarity for n_th pair)
+    # Single scalar loss value averaged over all batch
     
     return (loss_i + loss_t) / 2
 
