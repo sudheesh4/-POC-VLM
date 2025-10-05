@@ -7,19 +7,19 @@ def contrastive_loss(image_embeddings, text_embeddings, temperature):
     Compute the contrastive loss (InfoNCE/CLIP loss)
     """
     # Normalize embeddings
-    image_embeddings = F.normalize(image_embeddings, p=2, dim=1)
-    text_embeddings = F.normalize(text_embeddings, p=2, dim=1)
+    image_embeddings = F.normalize(image_embeddings, p=2, dim=1) #shape : (N_img=Batch, Embed_dim)
+    text_embeddings = F.normalize(text_embeddings, p=2, dim=1)  #shape : (N_text=Batch, Embed_dim)
     
     # Compute similarity matrix
-    logits = torch.matmul(text_embeddings, image_embeddings.T) / temperature
+    logits = torch.matmul(text_embeddings, image_embeddings.T) / temperature  ##shape : (N_text, N_img) 
     
     # Labels are the diagonal elements
     batch_size = image_embeddings.shape[0]
-    labels = torch.arange(batch_size).to(logits.device)
+    labels = torch.arange(batch_size).to(logits.device)  # N img-text pairs
     
     # Symmetric cross entropy loss
-    loss_i = F.cross_entropy(logits, labels)
-    loss_t = F.cross_entropy(logits.T, labels)
+    loss_i = F.cross_entropy(logits, labels)   # Image-to-text loss : n_th image should be linked to n_th text only (highest similarity for n_th pair)
+    loss_t = F.cross_entropy(logits.T, labels) # Text-to-image loss : n_th text should be linked to n_th image only (highest similarity for n_th pair)
     
     return (loss_i + loss_t) / 2
 
